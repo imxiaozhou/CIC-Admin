@@ -8,7 +8,7 @@ import { CustomProTable, SelectSearchable } from '@/components/proComponents';
 const { Title } = Typography;
 
 const getDataSource = async (params: any) => {
- return{}
+  return {};
 };
 
 const LookupUser = (props: LookupUserProps) => {

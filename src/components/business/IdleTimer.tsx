@@ -1,6 +1,5 @@
 import { CustomModal } from '@/components/proComponents';
 
-
 let countdown = 15;
 
 const IdleTimer: React.FC = () => {
@@ -9,17 +8,13 @@ const IdleTimer: React.FC = () => {
   const [isIdle, setIsIdle] = useState(false);
   const isIdleTimeout = useAppSelector(selectIsIdleTimeout);
 
-  const getIdleTimeout = async () => {
-
-  };
+  const getIdleTimeout = async () => {};
 
   const handleActivity = () => {
     setTimer(countdown * 60 * 1000);
   };
 
-  const onTimeout = () => {
- 
-  };
+  const onTimeout = () => {};
 
   useEffect(() => {
     let timeoutId: any = null;

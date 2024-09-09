@@ -104,7 +104,6 @@ const NoticesDropdown: React.FC = () => {
   const [currentPageNum, setCurrentPageNum] = useState<number>(5);
 
   const getDataSource = async () => {
-    
     setUnReadNum(10);
     return {
       data: data || []

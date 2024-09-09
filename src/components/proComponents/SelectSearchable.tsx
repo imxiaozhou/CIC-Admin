@@ -14,9 +14,7 @@ export default function SelectSearchable(props: SelectSearchableProps) {
   const [value, setValue] = useState<LabelValue[]>(defaultValue);
   const [options, setOptions] = useState<LabelValue[]>([]);
 
-  async function fetchUserList(keyword = '') {
-   
-  }
+  async function fetchUserList(keyword = '') {}
 
   useEffect(() => {
     fetchUserList();

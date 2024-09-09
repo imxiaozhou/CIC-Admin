@@ -20,9 +20,7 @@ const AdjustMessageStorageQuota = ({
 }: AdjustMessageStorageQuotaProp) => {
   const [unitOptions, setUnitOptions] = useState<LabelValue[]>([]);
 
-  const getUintOptions = () => {
-   
-  };
+  const getUintOptions = () => {};
 
   useEffect(() => {
     getUintOptions();

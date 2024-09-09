@@ -37,9 +37,7 @@ export default function PersonalCenterEntry() {
     }
   ];
 
-  const handleLogout = (): void => {
-  
-  };
+  const handleLogout = (): void => {};
   return (
     <>
       <Dropdown
@@ -64,8 +62,7 @@ export default function PersonalCenterEntry() {
       >
         <Flex style={{ userSelect: 'none' }} align="center">
           <Avatar size="default" icon={<Icon type="UserOutlined" />} />
-          <Text style={{ maxWidth: 120, marginLeft: 8 }} ellipsis>
-          </Text>
+          <Text style={{ maxWidth: 120, marginLeft: 8 }} ellipsis />
         </Flex>
       </Dropdown>
       <CustomModal

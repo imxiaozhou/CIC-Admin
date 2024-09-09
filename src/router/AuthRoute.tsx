@@ -7,7 +7,6 @@ export default function AuthRoute({
   const location = useLocation();
   const isLogin = useAppSelector(selectIsLogin);
 
-
   // if (!isLogin) {
   //   return <Navigate to="/login" state={location} replace />;
   // }

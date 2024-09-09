@@ -49,8 +49,7 @@ const NoticesModal: React.FC<CustomModalProps> = (props) => {
   const getDataSource = async (params: any) => {
     onCacheCurrentPage(params.current);
     onCacheCurrentPageNum(params.pageSize);
-   return []
-    
+    return [];
   };
 
   const handleSearch = useCallback(
@@ -65,15 +64,12 @@ const NoticesModal: React.FC<CustomModalProps> = (props) => {
   }, [keyword, handleSearch]);
 
   const getUnReadNotificationsCount = async () => {
-   
-
     onCacheUnReadNum(10 as number);
   };
 
   const onItemClick = async (record: any) => {
     onIsViewAllChange(false);
     onItemDataChange(record);
- 
 
     // 更新未读通知数量
     getUnReadNotificationsCount();

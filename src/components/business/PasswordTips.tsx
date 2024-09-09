@@ -1,4 +1,3 @@
-
 import { store } from '@/store';
 import { Typography } from 'antd';
 
@@ -8,9 +7,7 @@ const PasswordTips: React.FC = () => {
   const lang = selectLanguage(store.getState());
   const [tips, setTips] = useState<any>('');
 
-  const passwordTipsData = async () => {
-    
-  };
+  const passwordTipsData = async () => {};
 
   useEffect(() => {
     passwordTipsData();
