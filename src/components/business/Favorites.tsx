@@ -10,18 +10,6 @@ const Favorites = ({ code = '', label }: FavoritesType) => {
   const [count, setCount] = useState(0);
   const collapsed = useAppSelector(selectCollapsed);
 
-  const handleChange = async (value: number) => {
-   
-  };
-
-  const getFavorites = async () => {
-    
-  };
-
-  useEffect(() => {
-    getFavorites();
-  }, []);
-
   return (
     <Space style={{ height: '32px', margin: '-6px 0 4px' }}>
       {layoutMode === 'sidemenu' && (
@@ -32,15 +20,7 @@ const Favorites = ({ code = '', label }: FavoritesType) => {
         />
       )}
 
-      {code ? (
-        <>
-          <Rate count={1} onChange={handleChange} value={count} />
-          <Text className="text-secondary">{code}:</Text>
-          <Text>{label}</Text>
-        </>
-      ) : (
-        <Text>{label}</Text>
-      )}
+      {code ? <></> : <Text>{label}</Text>}
     </Space>
   );
 };

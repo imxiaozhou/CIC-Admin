@@ -24,8 +24,9 @@ class Request {
         config.headers.Authorization = `Bearer ${
           JSON.parse(localStorage.getItem('tokens') as string)?.token
         }`;
-        const lang = selectLanguage(store.getState());
-        config.data.lang = localConfig.langConfig[lang as LangConfig] || 'ENG';
+        // 请求体中携带语言参数
+        // const lang = selectLanguage(store.getState());
+        // config.data.lang = localConfig.langConfig[lang as LangConfig] || 'ENG';
         return config;
       },
       (error) => {

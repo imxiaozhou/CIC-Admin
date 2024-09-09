@@ -16,6 +16,24 @@ export function ThemeColorConfigProvider({
       theme={{
         token: {
           colorPrimary: themeColor
+        },
+        components: {
+          Button: {
+            colorLink: themeColor,
+            colorPrimary: themeColor
+          },
+          Pagination: {
+            colorPrimary: themeColor
+          },
+          Radio: {
+            colorPrimary: themeColor
+          },
+          Checkbox: {
+            colorPrimary: themeColor
+          },
+          Switch: {
+            colorPrimary: themeColor
+          }
         }
       }}
     >

@@ -19,9 +19,9 @@ export const defaultPageConfig: Omit<PageConfig, 'title'> = {
 };
 
 export const pageConfig: { [propName: string]: PageConfig } = {
-  '/login': { title: '登录', layout: false, auth: false },
+  // '/login': { title: '登录', layout: false, auth: false },
   // '/non-menu': { title: '非菜单页面', menuKey: '/test' },
-  '/print': { title: '打印', layout: false, auth: false },
-  '/': { title: '登录', layout: false, auth: false }
+  '/print': { title: '打印', layout: false, auth: false }
+  // '/': { title: '登录', layout: false, auth: false }
   // '/user-management/maintain-user-account/search-book': { title: 'Add User', menuKey: '/user-management/maintain-user-account' },
 };

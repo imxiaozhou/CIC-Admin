@@ -1,7 +1,7 @@
 const config = {
   // 应用信息
   app: {
-    name: 'SMA Administrator Portal'
+    name: 'MEx'
   },
   // 请求配置
   api: {

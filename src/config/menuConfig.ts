@@ -13,18 +13,28 @@ export const menus: MenuItem[] = [
   {
     label: 'Dashboard',
     icon: 'AppstoreOutlined',
-    key: '/dashboard',
+    key: '/dashboard'
   },
   {
     label: 'User Management',
+    icon: 'UserOutlined',
     key: '/user-management',
+    children: [
+      {
+        label: 'Add User',
+        key: '/user-management/add-user',
+        hidden: true
+      }
+    ]
   },
   {
     label: 'System Settings',
-    key: '/system-settings',
+    icon: 'SettingOutlined',
+    key: '/system-settings'
   },
   {
     label: 'Content Management',
-    key: '/content-management',
+    icon: 'UsergroupDeleteOutlined',
+    key: '/content-management'
   }
 ];

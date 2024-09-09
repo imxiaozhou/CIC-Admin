@@ -9,6 +9,7 @@ import i18n from './locales';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-hk';
 import { i18nChangeLanguage } from '@wangeditor/editor';
+import { ThemeColorConfigProvider } from '@/components/ThemeColors';
 
 type Locale = ConfigProviderProps['locale'];
 

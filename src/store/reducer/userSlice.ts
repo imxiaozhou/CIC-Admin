@@ -1,6 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store';
-import { PURGE } from 'redux-persist';
 
 export interface UserState {
   isLogin: boolean;
@@ -27,11 +26,10 @@ export const userSlice = createSlice({
     setIsIdleTimeout: (state, action: PayloadAction<boolean>) => {
       state.isIdleTimeout = action.payload;
     }
-  },
-
+  }
 });
 
-export const {  setDateFormat, setIsIdleTimeout, setIsLogin } =
+export const { setDateFormat, setIsIdleTimeout, setIsLogin } =
   userSlice.actions;
 
 export const selectIsIdleTimeout = (state: RootState) =>

@@ -35,13 +35,7 @@ const rootReducer = combineReducers({
     },
     userSlice
   ),
-  layout: persistReducer(
-    {
-      key: 'layout',
-      storage
-    },
-    layoutSlice
-  )
+  layout: layoutSlice
 });
 
 const persistConfig = {

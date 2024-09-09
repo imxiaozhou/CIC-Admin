@@ -16,7 +16,7 @@ const initialState: LayoutState = {
   layoutMode: 'sidemenu',
   collapsed: false,
   isDarkMode: false,
-  themeColor: '#0A52C6',
+  themeColor: '#00b96b',
   isOpenSetting: false,
   isFixedWidth: false,
   isFixedHeader: true

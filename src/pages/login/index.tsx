@@ -4,7 +4,6 @@ import { Alert, Button, Flex, Typography } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './login.module.css';
 import Icon from '@/components/Icons';
-import { useKeycloak } from '@react-keycloak/web';
 import OTPInput from '@/components/business/CustomOtpInput';
 
 interface Container {
@@ -32,32 +31,9 @@ export default function Login() {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [errorMsg, setErrorMsg] = useState<any>();
 
-  const handleValidateUserIp = async () => {
+  const handleValidateUserIp = async () => {};
 
-  };
-
-  const handleFinalLogin = async () => {
-    const userInfo = await dispatch(login()).unwrap();
-    if (userInfo) {
-      if (
-        userInfo.userStatus === 'ENABLE' &&
-        userInfo.accountStatus === 'ENABLE'
-      ) {
-        initUserSetting(userInfo.tenantName as string);
-        dispatch(setIsLogin(true));
-        message.success('Login successful');
-        navigate(
-          prev_page_location
-            ? prev_page_location.pathname + prev_page_location.search
-            : '/dashboard'
-        );
-      } else {
-        message.error('The user does not have access permissions');
-      }
-    } else {
-      message.error('The user does not exist');
-    }
-  };
+  const handleFinalLogin = async () => {};
 
   const handleOptLogin = async () => {
     if (!isIpValidated) {
@@ -67,16 +43,12 @@ export default function Login() {
     otpForm?.validateFields().then(
       async (values) => {
         const { otpValue } = values;
-       
       },
       () => {}
     );
   };
 
-  const clearLogout = useLogout();
-  const handleLogout = () => {
-    clearLogout();
-  };
+  const handleLogout = () => {};
 
   const handleOtpChange = (value: string) => {
     otpForm.setFieldValue('otpValue', value);
@@ -84,7 +56,6 @@ export default function Login() {
 
   useEffect(() => {
     handleValidateUserIp();
-   
   }, []);
 
   return (

@@ -1,6 +1,3 @@
-import { useSelector } from 'react-redux';
-import { selectLayoutMode } from '@/store/reducer/layoutSlice';
-import { LocalSettingsDrawer } from './components/LocalSettings';
 import { Layout } from 'antd';
 import Header from './components/Header';
 import Sider from './components/Sider';
@@ -10,11 +7,10 @@ import Footer from './components/Footer';
 export type LayoutModeType = 'sidemenu' | 'topmenu';
 
 export default function DefaultLayout() {
-
   return (
     <>
       <Header />
-      <Layout >
+      <Layout>
         <Sider />
         <Layout>
           <Content />
