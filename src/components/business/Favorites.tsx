@@ -1,4 +1,4 @@
-import { Rate, Space, Button, Typography } from 'antd';
+import { Space, Button, Typography } from 'antd';
 import Icon from '@/components/Icons';
 import { FavoritesType } from '@/types/business';
 
@@ -7,7 +7,6 @@ const { Text } = Typography;
 const Favorites = ({ code = '', label }: FavoritesType) => {
   const dispatch = useAppDispatch();
   const layoutMode = useAppSelector(selectLayoutMode);
-  const [count, setCount] = useState(0);
   const collapsed = useAppSelector(selectCollapsed);
 
   return (

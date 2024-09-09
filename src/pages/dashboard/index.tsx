@@ -5,6 +5,8 @@ import { Favorites } from '@/components/business';
 const { Title, Text } = Typography;
 
 const Dashboard = () => {
+  const $t = useTranslations();
+
   return (
     <Space direction="vertical">
       <Favorites label={$t('Dashboard')} />

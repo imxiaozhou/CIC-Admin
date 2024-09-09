@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const UserManagement = () => {
   const tableRef = useRef<ActionType>();
   const navigate = useNavigate();
+  const $t = useTranslations();
 
   const getDataSource = async (params: any) => {
     return {
@@ -37,27 +38,25 @@ const UserManagement = () => {
   return (
     <CustomProTableTheme>
       <Favorites label={$t('UserManagement')} />
-      {/* <CustomProTable
+      <CustomProTable
         actionRef={tableRef}
         rowSelection={false}
         columns={columns}
         searchTitle={$t('User Management')}
-        headerTitle={$t('User   List')}
+        headerTitle={$t('User List')}
         rowKey="id"
         request={getDataSource}
         toolBarRender={() => [
           <Button
             type="primary"
-            onClick={() =>
-              navigate('/user-management/add-user')
-            }
+            onClick={() => navigate('/user-management/add-user')}
             key="addUser"
           >
             <Icon type="UserAddOutlined" />
             {$t('Add User')}
           </Button>
         ]}
-      /> */}
+      />
     </CustomProTableTheme>
   );
 };

@@ -16,6 +16,7 @@ export default function LayoutSider() {
   const isDarkMode = useAppSelector(selectIsDarkMode);
   const isFixedHeader = useAppSelector(selectIsFixedHeader);
   const history = useNavigate();
+  const $t = useTranslations();
 
   const handleMenuClick = (e: any) => {
     const key = e.key;
@@ -52,7 +53,7 @@ export default function LayoutSider() {
           return {
             key: menu.key,
             icon: <Icon type={menu.icon} />,
-            label: menu.label
+            label: $t(menu.label)
           };
         })}
         selectedKeys={[selectedKey]}

@@ -19,7 +19,7 @@ interface State {
 export default function useMenu() {
   const navigate = useNavigate();
   const location = useLocation();
-  const menus = useAppSelector(selectMenuTree);
+  // const menus = useAppSelector(selectMenuTree);
 
   const [state, setState] = useSetState<State>({
     openKeys: [],
@@ -28,72 +28,68 @@ export default function useMenu() {
 
   const updateMenuState = ({ openKeys = [], selectKey }: State) => {
     // Fix the issue of menu not being highlighted when there is a hidden attribute in multi-level sub routes
-    const arr = flatArrTree(menus, 'children');
-    let sKey = selectKey;
-    let opKeys = openKeys;
-    const noHiddenKeys = opKeys.filter((i) => {
-      const target = arr.filter((item: MenuItem) => item.key === i);
-      return !target?.[0]?.hidden;
-    });
-
-    const curMenuItemArr = arr.filter((i: MenuItem) => i.key === sKey);
-    // last child menuitem has hidden = true
-    if (
-      curMenuItemArr.length > 0 &&
-      curMenuItemArr[0]?.hidden &&
-      opKeys.length > 0 &&
-      noHiddenKeys.length === opKeys.length
-    ) {
-      sKey = opKeys[0] || selectKey;
-    } else if (noHiddenKeys.length !== opKeys.length) {
-      // last child menuitem has not hidden attr && parent menuitem has hidden attr
-      opKeys = noHiddenKeys;
-      sKey = opKeys?.[0] || selectKey;
-    }
-
-    setState((prevState) => ({
-      openKeys: opKeys.length > 0 ? opKeys : prevState.openKeys,
-      selectKey: sKey
-    }));
+    // const arr = flatArrTree(menus, 'children');
+    // let sKey = selectKey;
+    // let opKeys = openKeys;
+    // const noHiddenKeys = opKeys.filter((i) => {
+    //   const target = arr.filter((item: MenuItem) => item.key === i);
+    //   return !target?.[0]?.hidden;
+    // });
+    // const curMenuItemArr = arr.filter((i: MenuItem) => i.key === sKey);
+    // // last child menuitem has hidden = true
+    // if (
+    //   curMenuItemArr.length > 0 &&
+    //   curMenuItemArr[0]?.hidden &&
+    //   opKeys.length > 0 &&
+    //   noHiddenKeys.length === opKeys.length
+    // ) {
+    //   sKey = opKeys[0] || selectKey;
+    // } else if (noHiddenKeys.length !== opKeys.length) {
+    //   // last child menuitem has not hidden attr && parent menuitem has hidden attr
+    //   opKeys = noHiddenKeys;
+    //   sKey = opKeys?.[0] || selectKey;
+    // }
+    // setState((prevState) => ({
+    //   openKeys: opKeys.length > 0 ? opKeys : prevState.openKeys,
+    //   selectKey: sKey
+    // }));
   };
 
   // Calculate the menu status at initialization
   useEffect(() => {
-    if (menus.length === 0) {
-      return;
-    }
-    const menuState = mapRouteToMenuStatus(menus, location.pathname) || {};
-    updateMenuState(menuState as State);
+    // if (menus.length === 0) {
+    //   return;
+    // }
+    // const menuState = mapRouteToMenuStatus(menus, location.pathname) || {};
+    // updateMenuState(menuState as State);
   }, [location]);
 
   const onOpenChange = (keys: string[]) => {
-    const rootKeys = menus
-      .filter((item) => item.children && item.children.length > 0)
-      .map((item) => item.key);
-
-    const latestOpenKey = keys.length > 0 ? keys[keys.length - 1] : undefined;
-
-    if (latestOpenKey && rootKeys.includes(latestOpenKey)) {
-      // 走到这里说明打开新的根菜单
-      setState({ openKeys: [latestOpenKey] });
-    } else {
-      // 走到这里说明两种情况：
-      // 1. onchange keys 是空的，直接赋值。
-      // 2. 打开的是子菜单，也是直接赋值。
-      setState({ openKeys: keys });
-    }
+    // const rootKeys = menus
+    //   .filter((item) => item.children && item.children.length > 0)
+    //   .map((item) => item.key);
+    // const latestOpenKey = keys.length > 0 ? keys[keys.length - 1] : undefined;
+    // if (latestOpenKey && rootKeys.includes(latestOpenKey)) {
+    //   // 走到这里说明打开新的根菜单
+    //   setState({ openKeys: [latestOpenKey] });
+    // } else {
+    //   // 走到这里说明两种情况：
+    //   // 1. onchange keys 是空的，直接赋值。
+    //   // 2. 打开的是子菜单，也是直接赋值。
+    //   setState({ openKeys: keys });
+    // }
   };
 
   return {
-    selectKey: state.selectKey,
-    onSelectKey: (key: string) => {
-      if (key === state.selectKey && key !== state.openKeys?.[0]) return;
-      setState({ selectKey: key });
-      navigate(key);
-    },
-    openKeys: state.openKeys,
-    onOpenKeys: onOpenChange,
-    items: generateMenuItems(menus)
+    // selectKey: state.selectKey,
+    // onSelectKey: (key: string) => {
+    //   if (key === state.selectKey && key !== state.openKeys?.[0]) return;
+    //   setState({ selectKey: key });
+    //   navigate(key);
+    // },
+    // openKeys: state.openKeys,
+    // onOpenKeys: onOpenChange,
+    // items: generateMenuItems(menus)
   };
 }
 
@@ -104,29 +100,29 @@ export default function useMenu() {
  */
 const generateMenuItems = (data: MenuItem[]): ItemType[] => {
   const menu: ItemType[] = [];
-  data.forEach((item) => {
-    if (item?.hidden) {
-      return false;
-    }
-    let children;
-    if (item.children) {
-      children = generateMenuItems(item.children);
-    }
+  // data.forEach((item) => {
+  //   if (item?.hidden) {
+  //     return false;
+  //   }
+  //   let children;
+  //   if (item.children) {
+  //     children = generateMenuItems(item.children);
+  //   }
 
-    const items = {
-      key: item.key,
-      label: $t(item.label),
-      icon: <Icon type={item.icon} />
-    };
+  //   const items = {
+  //     key: item.key,
+  //     label: $t(item.label),
+  //     icon: <Icon type={item.icon} />
+  //   };
 
-    if (children && children.length > 0) {
-      Object.assign(items, {
-        children
-      });
-    }
+  //   if (children && children.length > 0) {
+  //     Object.assign(items, {
+  //       children
+  //     });
+  //   }
 
-    menu.push(items as ItemType);
-  });
+  //   menu.push(items as ItemType);
+  // });
   return menu;
 };
 

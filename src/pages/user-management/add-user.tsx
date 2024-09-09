@@ -14,6 +14,7 @@ const { Title } = Typography;
 const AddUser = () => {
   const [form] = Form.useForm<any>();
   const navigate = useNavigate();
+  const $t = useTranslations();
 
   const columns = [
     {

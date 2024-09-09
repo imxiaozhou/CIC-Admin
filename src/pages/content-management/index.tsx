@@ -1,5 +1,6 @@
 const ContentManagement = () => {
-  return <div>Content Management</div>;
+  const $t = useTranslations();
+  return <div>{$t('Content Management')}</div>;
 };
 
 export default ContentManagement;

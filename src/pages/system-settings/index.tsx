@@ -11,6 +11,9 @@ const SysTemSetting = () => {
     passwordExpiryTime: 12
   });
   const [key, setKey] = useState<string>('dataRetentionPolicles');
+
+  const $t = useTranslations();
+
   const globalParameterMenus: {
     key: any;
     label: string;
@@ -62,52 +65,52 @@ const SysTemSetting = () => {
   return (
     <>
       <Favorites label={$t('System Settings')} />
-      {/* <Card
-          className="globalParametersContainer"
-          styles={{
-            body: { padding: '0 0 0 0', height: '100%' }
-          }}
-        >
-          <Layout style={{ height: '100%' }}>
-            <Sider
-              width={320}
-              style={{
-                borderRadius: '8px 0 0 8px',
-                background: '#fff',
-                height: '100%',
-                borderRight: '1px solid #e8e8e8' 
-              }}
-            >
-              <Title className="title" level={3}>
-                {$t('About Settings')}
-              </Title>
-              <Menu
-                mode="inline"
-                defaultSelectedKeys={['dataRetentionPolicles']}
-                style={{ height: '100%' }}
-                items={globalParameterMenus}
-                selectedKeys={[key]}
-                onSelect={handleSelectMenu}
-              />
-            </Sider>
-            <Content style={{ height: '100%' }}>
-              <Card style={{ height: '100%'}}>
-                {MenuContent}
-                <CustomFormButton
-                  type="primary"
-                  className="submitBtn"
-                  onConfirm={() => {}}
-                  style={{
-                    top: 20,
-                    right: 10
-                  }}
-                >
-                  {$t('Submit')}
-                </CustomFormButton>
-              </Card>
-            </Content>
-          </Layout>
-        </Card> */}
+      <Card
+        className="globalParametersContainer"
+        styles={{
+          body: { padding: '0 0 0 0', height: '100%' }
+        }}
+      >
+        <Layout style={{ height: '100%' }}>
+          <Sider
+            width={320}
+            style={{
+              borderRadius: '8px 0 0 8px',
+              background: '#fff',
+              height: '100%',
+              borderRight: '1px solid #e8e8e8'
+            }}
+          >
+            <Title className="title" level={3}>
+              {$t('About Settings')}
+            </Title>
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={['dataRetentionPolicles']}
+              style={{ height: '100%' }}
+              items={globalParameterMenus}
+              selectedKeys={[key]}
+              onSelect={handleSelectMenu}
+            />
+          </Sider>
+          <Content style={{ height: '100%' }}>
+            <Card style={{ height: '100%' }}>
+              {MenuContent}
+              <CustomFormButton
+                type="primary"
+                className="submitBtn"
+                onConfirm={() => {}}
+                style={{
+                  top: 20,
+                  right: 10
+                }}
+              >
+                {$t('Submit')}
+              </CustomFormButton>
+            </Card>
+          </Content>
+        </Layout>
+      </Card>
     </>
   );
 };
