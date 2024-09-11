@@ -1,6 +1,6 @@
 import { Favorites } from '@/components/business';
 import { CustomFormButton } from '@/components/proComponents';
-import { Card, Layout, Menu, Typography } from 'antd';
+import { Card, Layout, Menu, Space, Typography } from 'antd';
 import './index.less';
 import Counter from './components/Counter';
 
@@ -40,12 +40,12 @@ const SysTemSetting = () => {
       case 'dataRetentionPolicles':
         return (
           <Counter
-            label="Password Expiry Time Configuration"
+            label="The Retention period of Audit Logs"
             value={details.passwordExpiryTime}
             onChange={(value: number) => {
               setDetails({ ...details, passwordExpiryTime: value });
             }}
-            suffix="Days"
+            suffix="Month"
           />
         );
 
@@ -87,7 +87,6 @@ const SysTemSetting = () => {
             <Menu
               mode="inline"
               defaultSelectedKeys={['dataRetentionPolicles']}
-              style={{ height: '100%' }}
               items={globalParameterMenus}
               selectedKeys={[key]}
               onSelect={handleSelectMenu}
@@ -96,17 +95,31 @@ const SysTemSetting = () => {
           <Content style={{ height: '100%' }}>
             <Card style={{ height: '100%' }}>
               {MenuContent}
-              <CustomFormButton
-                type="primary"
-                className="submitBtn"
-                onConfirm={() => {}}
-                style={{
-                  top: 20,
-                  right: 10
-                }}
-              >
-                {$t('Submit')}
-              </CustomFormButton>
+              <Space>
+                <CustomFormButton
+                  type="primary"
+                  ghost
+                  className="submitBtn"
+                  onConfirm={() => {}}
+                  style={{
+                    top: 20,
+                    right: 100
+                  }}
+                >
+                  {$t('Export Report')}
+                </CustomFormButton>
+                <CustomFormButton
+                  type="primary"
+                  className="submitBtn"
+                  onConfirm={() => {}}
+                  style={{
+                    top: 20,
+                    right: 20
+                  }}
+                >
+                  {$t('Submit')}
+                </CustomFormButton>
+              </Space>
             </Card>
           </Content>
         </Layout>

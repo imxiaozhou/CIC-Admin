@@ -1,3 +1,3 @@
-import Login from '@/pages/dashboard/index';
+import Login from '@/pages/login/index';
 
 export default Login;

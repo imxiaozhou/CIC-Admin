@@ -35,6 +35,7 @@ module.exports = {
     '@typescript-eslint/no-invalid-void-type': 'off',
     '@typescript-eslint/consistent-type-assertions': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
+     "@typescript-eslint/prefer-optional-chain": "off",
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',

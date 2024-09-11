@@ -11,10 +11,6 @@ import './App.css';
 import './assets/css/editor.less';
 import './assets/css/global.less';
 
-const tokenLogger = (tokens: any) => {
-  localStorage.setItem('tokens', JSON.stringify(tokens));
-};
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>

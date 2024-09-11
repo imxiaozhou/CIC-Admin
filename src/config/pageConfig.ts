@@ -19,5 +19,5 @@ export const defaultPageConfig: Omit<PageConfig, 'title'> = {
 };
 
 export const pageConfig: { [propName: string]: PageConfig } = {
-  // '/login': { title: '登录', layout: false, auth: false }
+  '/': { title: '登录', layout: false, auth: false }
 };

@@ -2,6 +2,7 @@ import { Space } from 'antd';
 import NoticeHeaderButton from './NoticeIcon';
 import PersonalCenter from './PersonalCenter';
 import LanguageSetting from './LanguageSetting';
+import { DarkModeSwitch } from '@/components/DarkModeSwitch';
 
 export default function HeaderActions() {
   return (
@@ -9,6 +10,7 @@ export default function HeaderActions() {
       <NoticeHeaderButton />
       <PersonalCenter />
       <LanguageSetting />
+      <DarkModeSwitch />
     </Space>
   );
 }

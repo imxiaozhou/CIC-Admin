@@ -1,17 +1,21 @@
 import type { CSSProperties } from 'react';
 import { Layout, theme, Menu } from 'antd';
 import { menus } from '@/config/menuConfig';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Icon from '@/components/Icons';
 
 const { Sider } = Layout;
 const { useToken } = theme;
 
 export default function LayoutSider() {
-  const [selectedKey, setSelectedKey] = useState(() => {
-    // 从 localStorage 中读取初始状态
-    return localStorage.getItem('selectedKey') || '/dashboard';
-  });
+  const location = useLocation();
+  const [selectedKey, setSelectedKey] = useState(location.pathname);
+
+  useEffect(() => {
+    setSelectedKey(location.pathname);
+    localStorage.setItem('selectedKey', location.pathname);
+  }, [location]);
+
   const layoutMode = useAppSelector(selectLayoutMode);
   const isDarkMode = useAppSelector(selectIsDarkMode);
   const isFixedHeader = useAppSelector(selectIsFixedHeader);
@@ -24,6 +28,7 @@ export default function LayoutSider() {
     localStorage.setItem('selectedKey', key);
     history(key);
   };
+
   const {
     token: { colorBgContainer }
   } = useToken();
